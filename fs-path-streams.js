@@ -67,7 +67,6 @@ function updateFile(file, result) {
            file.loses += 1;
        }
         if(file.winRate !== 0) {
-            console.log('check')
             file.winRate = `${Math.round(file.wins / file.count  * 100)}%`;
         } else if (result) {
             file.winRate = '100%';
@@ -81,7 +80,6 @@ function updateFile(file, result) {
 function processFile(result) {
     fs.stat(pathFile, (err, stat) => {
         if(err == null) {
-            console.log('ok')
             let contentFile = JSON.parse(readFile())
             contentFile = updateFile(contentFile, result)
             writeFile(contentFile);
